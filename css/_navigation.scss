@@ -1,0 +1,594 @@
+/* # Site #Navigation
+---------------------------------------------------------------------------------------------------- */
+
+.genesis-nav-menu {
+	clear: both;
+	line-height: 1;
+	width: 100%;
+}
+
+.genesis-nav-menu .menu-item {
+	display: inline-block;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	text-align: left;
+}
+
+.genesis-nav-menu a {
+	font-family: $nav-font-family;
+	font-weight: $nav-font-weight;
+	text-decoration: none;
+	display: block;	
+}
+
+.genesis-nav-menu a:hover,
+.genesis-nav-menu a:focus,
+.genesis-nav-menu .current-menu-item > a,
+.genesis-nav-menu .sub-menu .current-menu-item > a:hover,
+.genesis-nav-menu .sub-menu .current-menu-item > a:focus  {
+	text-decoration: none;
+}
+
+
+    
+/* ## Accessible Menu
+--------------------------------------------- */
+
+.menu .menu-item:focus {
+	position: static;
+}
+
+.menu .menu-item > a:focus + ul.sub-menu,
+.menu .menu-item.sfHover > ul.sub-menu {
+	left: auto;
+	opacity: 1;
+}
+
+.menu-toggle,
+.sub-menu-toggle {
+	display: none;
+	visibility: hidden;
+}
+
+@media only screen and (max-width: $screen-medium) {
+
+	.header-widget-area .widget_nav_menu, .nav-primary {
+    display: none;
+	}
+
+}
+
+/* ## Site #Header Navigation
+--------------------------------------------- */
+
+@media only screen and (min-width: $screen-medium) {	
+
+	.site-header .genesis-nav-menu li li {
+		margin-left: 0;
+	}
+
+	.site-header .nav-header {
+		float: right;
+		
+		.current-menu-item a {
+			color: $header-nav-link-hover;
+			
+			// linetta bassa
+			@if $header-nav-underline == 'yes' {
+
+				span {
+					border-bottom: 2px solid $header-nav-line; 
+					padding-bottom: 4px;
+				}
+
+			}	
+
+		}	
+
+		a {	
+			padding: 16px 20px 16px;
+			color: $header-nav-link;		
+			font-size: $header-nav-font-size;
+			font-weight: $bold;	
+			text-transform: $header-nav-text-transform;	
+
+			&:hover, &:focus {
+				color: $header-nav-link-hover;
+			
+			// linetta bassa
+				@if $header-nav-underline == 'yes' {	
+					span {
+						border-bottom: 2px solid $header-nav-line;
+						padding-bottom: 4px;
+					}
+
+				}
+
+			}
+							
+		}	
+
+	}
+
+	@if $sticky-header == 'yes' {		
+
+		.transparent-header .site-header .nav-header  {
+
+		 	a {
+				color: $header-nav-link-transparent;
+			
+				&:hover, &:focus {
+					color: $header-nav-link-hover-transparent;
+				}
+			}
+
+			.current-menu-item a {
+				color: $header-nav-link-hover-transparent;
+			}
+
+		}
+
+		.white.site-header .nav-header,
+		.site-header .nav-header  {
+
+			a {
+			   color: $header-nav-link;
+		   
+			   &:hover, &:focus {
+				   color: $header-nav-hover;
+			   }
+		   }
+
+		   .current-menu-item a {
+			   color: $header-nav-hover;
+		   }
+
+	   }
+
+	}
+
+}
+
+/* ## #Primary Navigation
+--------------------------------------------- */
+
+.nav-primary {
+	background: $primary-nav-background;
+	border-top: $primary-nav-border-top;
+	border-bottom: $primary-nav-border-bottom;
+	//@include border-bottom();
+
+	a {	
+		padding: 16px 20px 16px;
+		color: $primary-nav-link;
+		background-color: $primary-nav-link-bk;		
+		font-size: $primary-nav-font-size;
+		text-transform: $primary-nav-text-transform;
+		@if $primary-nav-line-enable == 'yes' {
+		border-top: 3px solid transparent;
+		}
+
+		&:hover, &:focus {
+			color: $primary-nav-link-hover;
+			// I seguenti cambiano il tipo di hover, si possono usare insieme		
+			background: $primary-nav-link-hover-bk; // standard
+			@if $primary-nav-line-enable == 'yes' {
+			border-top: 3px solid $primary-nav-line; // linetta alta
+			}
+
+		}
+						
+	}
+
+	.current-menu-item a {
+		color: $primary-nav-link-hover;
+		// I seguenti cambiano il tipo di hover, si possono usare insieme		
+		background: $primary-nav-link-hover-bk; // standard
+		@if $primary-nav-line-enable == 'yes' {
+		border-top: 3px solid $primary-nav-line; // linetta alta
+		}
+	}
+
+}
+
+/* ## Top Navigation (Secondary Navigation)
+--------------------------------------------- */
+
+.nav-secondary {
+	background: $top-nav-background;	
+	border-bottom: $top-navigation-border-bottom;	
+		
+	a {
+		padding: 12px 10px;		
+		color: $top-nav-link;
+		font-size: $top-nav-font-size;
+		font-weight: $bold;
+		text-transform: $top-nav-text-transform;
+				
+		&:hover, &:focus {
+			color: $top-nav-link-hover;
+		}
+
+	}
+
+	.current_page_item a {
+		color: $top-nav-link-hover;
+	}	
+
+	li {
+		float: right;
+	}
+
+}
+
+/* ## Submenu per header e primary.
+      Non sono previsti ulteriori livelli.
+--------------------------------------------- */
+
+.genesis-nav-menu .sub-menu {
+	background: $submenu-background;
+	@include box-shadow-2;
+	left: -9999px;
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: opacity .2s ease-in-out;
+	-moz-transition:    opacity .2s ease-in-out;
+	-ms-transition:     opacity .2s ease-in-out;
+	-o-transition:      opacity .2s ease-in-out;
+	transition:         opacity .2s ease-in-out;
+	width: $submenu-width;
+	z-index: 99;
+}
+
+.genesis-nav-menu .sub-menu a {
+	border: 0;
+	border-top: 0;
+	border-top: 1px solid $submenu-border-color;
+	font-size: $submenu-font-size;
+	font-weight: normal;
+	padding: 12px 8px;
+	position: relative;
+	width: $submenu-width;
+	word-wrap: break-word;
+}
+
+.genesis-nav-menu .menu-item .sub-menu .menu-item a span {
+	border: 0;
+}
+
+.genesis-nav-menu .menu-item:hover {
+	position: static;
+}
+
+.genesis-nav-menu .menu-item:hover > .sub-menu {
+	left: auto;
+	opacity: 1;
+}
+
+.genesis-nav-menu > .first > a {
+	padding-left: 0;
+}
+
+.genesis-nav-menu > .last > a {
+	padding-right: 0;
+}
+
+.genesis-nav-menu > .right {
+	float: right;
+}
+
+
+/* ## Mobile & Responsive Menu
+--------------------------------------------- */
+
+@media only screen and (min-width: $screen-medium) {
+    .hamburger, .side-menu {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: $screen-medium) { 
+
+	.site-header {
+		position: relative;
+	}
+
+	/*!
+	* Hamburgers
+	* @description Tasty CSS-animated hamburgers
+	* @author Jonathan Suh @jonsuh
+	* @site https://jonsuh.com/hamburgers
+	* @link https://github.com/jonsuh/hamburgers
+	*/
+	
+	.hamburger {
+		display: inline-block;
+		overflow: visible;
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		margin: 0;
+		padding: 15px;
+		border: 0;
+		color: inherit;
+		background-color: #fff;
+		font: inherit;
+		line-height: 1;
+		text-transform: none;
+		cursor: pointer;
+		transition-timing-function: linear;
+		transition-duration: 0.15s;
+		transition-property: opacity, filter;
+	}
+
+	button.hamburger {
+		box-shadow: none;
+		background: transparent;
+	}
+
+	.hamburger:hover {
+		opacity: 0.7;
+		background-color: transparent;
+	}
+
+	.hamburger:focus {
+		background-color: transparent;
+	}
+
+	.hamburger:hover,
+	.hamburger:focus {
+		outline: none;
+	}
+
+	.hamburger-box {
+		display: inline-block;
+		position: relative;
+		width: 40px;
+		height: 24px;
+	}
+
+	.hamburger-inner {
+		display: block;
+		top: 50%;
+		margin-top: -2px;
+	}
+
+	.hamburger-inner,
+	.hamburger-inner::before,
+	.hamburger-inner::after {
+		position: absolute;
+		width: 40px;
+		height: 4px;
+		border-radius: 4px;
+		background-color: $hamburger-color;
+		transition-timing-function: ease;
+		transition-duration: 0.15s;
+		transition-property: transform;
+	}
+
+	.hamburger-inner::before,
+	.hamburger-inner::after {
+		display: block;
+		content: "";
+	}
+
+	.hamburger-inner::before {
+		top: -10px;
+	}
+
+	.hamburger-inner::after {
+		bottom: -10px;
+	}
+
+	/* Spring */
+
+	.hamburger--spring .hamburger-inner {
+		top: 2px;
+		-webkit-transition: background-color 0s 0.13s linear;
+		transition: background-color 0s 0.13s linear;
+	}
+
+	.hamburger--spring .hamburger-inner::before {
+		top: 10px;
+		-webkit-transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), -webkit-transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), -webkit-transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	}
+
+	.hamburger--spring .hamburger-inner::after {
+		top: 20px;
+		-webkit-transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), -webkit-transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), -webkit-transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	}
+
+	.hamburger--spring.is-active .hamburger-inner {
+		background-color: transparent;
+		-webkit-transition-delay: 0.22s;
+		transition-delay: 0.22s;
+	}
+
+	.hamburger--spring.is-active .hamburger-inner::before {
+		top: 0;
+		-webkit-transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), -webkit-transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), -webkit-transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+		-webkit-transform: translate3d(0, 10px, 0) rotate(45deg);
+		transform: translate3d(0, 10px, 0) rotate(45deg);
+	}
+
+	.hamburger--spring.is-active .hamburger-inner::after {
+		top: 0;
+		-webkit-transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), -webkit-transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), -webkit-transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+		-webkit-transform: translate3d(0, 10px, 0) rotate(-45deg);
+		transform: translate3d(0, 10px, 0) rotate(-45deg);
+	}
+
+	/* Slideout */
+
+	body {
+		width: 100%;
+		height: 100%;
+	}
+
+	.slideout-menu {
+		display: none;
+		overflow-y: scroll;
+		position: fixed;
+		z-index: 0;
+		top: 0;
+		bottom: 0;
+		width: 256px; // Era 256px. Va di pari passo col valore alla riga 7 di slideout-init.js
+		min-height: 100vh;
+
+		-webkit-overflow-scrolling: touch;
+	}
+	.admin-bar .slideout-menu {
+		top: 32px;
+	}
+
+	.slideout-menu-left {
+		left: 0;
+	}
+
+	.slideout-menu-right {
+		right: 0;
+	}
+
+	.slideout-panel {
+		position: relative;
+		z-index: 1;
+		min-height: 100vh;
+		background-color: $body-background; /* A background-color is required. Set this to body element's background color */
+
+		will-change: transform;
+	}
+
+	.slideout-open,
+	.slideout-open body,
+	.slideout-open .slideout-panel {
+		overflow: hidden;
+	}
+
+	.slideout-open .slideout-menu {
+		display: block;
+	}
+
+	.panel:before {
+		display: block;
+		background-color: rgba(0,0,0,0);
+		content: "";
+		transition: background-color 0.5s ease-in-out;
+	}
+
+	.panel-open:before {
+		display: block;
+		position: absolute;
+		z-index: 99;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		background-color: rgba(0,0,0,0.2);
+	}
+
+	/* Side menu */
+
+	.side-menu {
+		display: none;
+		color: $side-menu-color;
+		text-transform: $side-menu-text-transform;
+		background-color: $side-menu-bk;
+		background-image: linear-gradient(145deg, $side-menu-bk-start, $side-menu-bk-end);
+		font-size: $side-menu-font-size;
+	}
+
+	.side-menu > .wrap {
+		position: relative;
+		padding: 25px;
+	}
+
+	.side-menu .widget_nav_menu {
+		margin-right: -25px;
+		margin-left: -25px;
+	}
+
+	.side-menu .widget_nav_menu .widget-title {
+		padding: 0 25px;
+	}
+
+	.side-menu a {
+		display: block;
+		padding: 10px 25px;
+		color: $side-menu-link;
+		line-height: 1;
+		text-decoration: none;
+	}
+
+	.side-menu a:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.side-menu .widget li li {
+		margin: 0 0 0 20px;
+	}
+
+	.side-menu .widget ul > li {
+		margin-bottom: 0;
+	}
+
+	.side-menu .widget:last-child {
+		margin-bottom: 0;
+	}
+
+	.side-menu .widget-title {
+		color: $side-menu-widget-title-color;
+		font-size: $side-menu-widget-title-size;
+		font-weight: $side-menu-widget-title-weight;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	.side-menu input {
+		border-radius: 0;
+
+		-webkit-appearance: none;
+	}
+
+	.side-menu input[type="search"] {
+		padding: 4px 8px;
+		font-size: 15px;
+	}
+
+	.dashicons.close-icon {
+		position: absolute;
+		top: 5px;
+		right: 3px;
+		width: 30px;
+		height: 30px;
+		font-size: 30px;
+	}
+
+}
+
+@media only screen and (min-width: $screen-small) {
+
+    .dashicons.close-icon {
+       display: none;
+	}
+	
+}
+
+@media only screen and (max-width: $screen-small) {
+
+    .hamburger {
+        position: static;
+        width: 100%;
+    }
+
+}

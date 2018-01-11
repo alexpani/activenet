@@ -1,0 +1,263 @@
+/*
+Poppy Elements
+---------------------------------------------------------------------------------------------------- */
+
+.poppy ul {
+	margin: 0 !important;
+}
+
+.poppy li {
+	list-style-type: none !important;
+}
+
+.poppy h2,
+.poppy h3,
+.poppy h4 {
+	margin: 0rem;
+}
+
+
+//* Element row
+.poppy-element-row {
+
+	.element {	
+		margin-bottom: 20px;
+		@include border();
+		
+		h3 {
+			text-transform: uppercase;
+			font-size: $font-size;
+			padding: 0px 6px 12px 6px;
+		}
+		
+	}	
+
+}
+
+
+//* Element li row
+li.ordrered-list-2:nth-of-type(2n+1), 
+li.ordrered-list-3:nth-of-type(3n+1), /* select every 3 item starting from 1 */
+li.ordrered-list-4:nth-of-type(4n+1),
+li.ordrered-list-5:nth-of-type(5n+1),
+li.ordrered-list-6:nth-of-type(6n+1) { 
+    clear: both;
+    margin-left: 0;
+}
+
+.poppy-element-li-row {	
+	display: inline-block;
+	
+	ul {
+		margin: 0;
+	}
+
+}
+
+//* Content Box
+
+.content-box-primary {
+	background-color: $color1;
+	border: 1px solid $color1-alt;
+	margin-bottom: 30px;
+	overflow: hidden;
+	padding: 30px;
+	width: 80%;
+	margin: 30px auto;
+}
+
+.content-box-secondary {
+	background-color: $color3;
+	border: 1px solid $color3-alt;
+	margin-bottom: 30px;
+	overflow: hidden;
+	padding: 30px;
+	width: 80%;
+	margin: 30px auto;
+}
+
+.content-box-light {
+	background-color: #fff;
+	border: 1px solid $text-color;
+	margin-bottom: 30px;
+	overflow: hidden;
+	padding: 30px;
+	width: 80%;
+	margin: 30px auto;
+}
+
+
+
+//* Icon Box
+.poppy.poppy-icon-box {
+	
+	div {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	
+	.fa {
+		color: $icon-color;		
+	}
+	
+	h3, h4 {
+		margin: 0 auto;		
+		@include text-medium;
+	}
+	
+	p {
+		@include text-small;
+		//font-weight: $bold;				
+	}
+
+	&.text-light,
+	&.color-light {
+
+		h3, p {
+			color: $color-light;
+		}
+
+	}
+
+	&.text-dark,
+	&.color-dark {
+
+		h3, p {
+			color: $color-dark;
+		}
+
+	}
+
+	&.icon-gradient {
+
+		.fa {
+			color: transparent;
+			@include text-gradient();		
+		}
+		
+	}
+
+}
+
+
+
+
+//* Home News Type 1
+.home-news {	
+
+		span {
+			position: relative;
+			top: 30px;
+			left: 0;
+			color: #FFF;
+			background: $color1;
+			padding: 4px;
+			font-size: 1.6rem;
+		}		
+
+		img {
+			margin-bottom: -10px;
+			width: 768px;
+			height: auto;
+		}
+
+		p {
+			font-size: 1.6rem;
+			line-height: 1.5;
+		}			
+
+			h3 {
+				text-transform: uppercase;
+				font-size: 1.8rem;
+				height: 6rem;
+				background: $color1;
+				padding: 10px;
+				margin: 0;
+				text-align: center;
+				
+				a {
+					color: #fff;
+					text-decoration: none;
+					vertical-align: text-top;
+					
+					&:hover {
+						color: #ccc;
+					}
+				}	
+				
+			}
+
+		}
+
+// Home News Type 2
+.home-news-2 { 
+
+	li > div {
+		border-radius: 4px;
+		-webkit-box-shadow: 1px 1px 1px rgba(115, 115, 115, 0.2);
+		-moz-box-shadow: 1px 1px 1px rgba(115, 115, 115, 0.2);
+		box-shadow: 1px 1px 1px rgba(115, 115, 115, 0.2);
+		background: #fff;
+		display: block;
+	}
+
+	.label {
+		display: block;
+		float: left;
+		//height: 20px;		
+		border-radius: 2px;
+		padding: 0px 15px 0px 15px;    
+		font-size: 1.3rem;
+		font-size: 13px;
+		line-height: 20px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #fff;
+		z-index: 10;
+		background: $icon-color;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		margin: -9px 0 0 20px;
+		position: absolute;
+	}
+
+	span {
+		position: relative;
+		top: 29px;
+		left: 0;
+		color: #FFF;
+		background: $icon-color;
+		padding: 4px;
+		font-size: 1.5rem;
+		font-size: 15px;
+		overflow: hidden;
+	}		
+
+	img {		
+		border-bottom-width: 3px;
+		border-bottom-style: solid;
+		border-radius: 4px 4px 0px 0px;
+		border-color: $icon-color;
+	}				
+
+	h3 {        				
+		font-size: 1.8rem;
+		font-size: 18px;				
+		padding: 10px;
+		margin: 0;
+		background: #fff;
+		
+		a {
+			color: $title-color;
+			text-decoration: none;
+			vertical-align: -webkit-baseline-middle;
+			
+			&:hover {
+				color: #ccc;
+			}
+
+		}
+		
+	}
+
+}

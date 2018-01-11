@@ -1,0 +1,233 @@
+/*
+ * Mixins (Theme+WooCommerce)
+---------------------------------------------------------------------------------------------------- */
+
+//* Ombra WooCommerce
+@mixin box-shadow {
+    @include box-shadow-1;	
+}
+
+//* Altre ombre
+@mixin box-shadow-1 { // Replico quello di Woo per usarlo nel tema con coerenza
+    -webkit-box-shadow: 0px 10px 45px 0px rgba(30, 37, 54, 0.18);
+    box-shadow: 0px 2px 5px 0px rgba(30, 37, 54, 0.18);
+}
+
+@mixin box-shadow-2 {
+    -webkit-box-shadow: 0px 10px 45px 0px rgba(30, 37, 54, 0.18);
+    box-shadow: 0px 10px 45px 0px rgba(30, 37, 54, 0.18);
+}
+
+@mixin box-shadow-3 {
+    -webkit-box-shadow: 0 35px 50px rgba(0, 0, 0, .25);
+    box-shadow: 0 17px 50px rgba(0, 0, 0, .25);
+}
+
+@mixin box-shadow-4 {
+    -webkit-box-shadow: 0 35px 50px rgba(0, 0, 0, .25);
+    box-shadow: 0 35px 50px rgba(0, 0, 0, .25);
+}
+
+@mixin text-shadow {    
+    text-shadow: 0 2px 4px rgba(128, 128, 128, .3);    
+}
+
+@mixin text-shadow-dark {    
+    text-shadow: 0 2px 4px rgba(0, 0, 0, .3);    
+}
+
+@mixin text-shadow-light {    
+    text-shadow: 0 3px 2px rgba(255, 255, 255, .4);    
+}
+
+@mixin button-shadow($color) {
+    -webkit-box-shadow: 0 3px 10px rgba($color, .25);
+    box-shadow: 0 3px 10px rgba($color, .25);
+}
+
+.box-shadow-1 {
+    @include box-shadow-1;
+}
+
+.box-shadow-2 {
+    @include box-shadow-2;
+}
+
+.box-shadow-3 {
+    @include box-shadow-3;
+}
+
+.box-shadow-4 {
+    @include box-shadow-4;
+}
+
+.text-shadow {
+    @include text-shadow;
+}
+
+.text-shadow-dark {
+    @include text-shadow-dark;
+}
+
+.text-shadow-light {
+    @include text-shadow-light;
+}
+
+
+//* Bordi
+@mixin border {
+	border: $border;	
+}
+
+@mixin border-top {
+	border-top: $border;	
+}
+
+@mixin border-bottom {
+	border-bottom: $border;	
+}
+
+//* Gradient
+@mixin gradient {
+    background: mix($gradient-start, $gradient-end);    
+    background: linear-gradient($gradient-angle, $gradient-start, $gradient-end);
+}
+
+//* Gradient Text
+@mixin text-gradient {
+    color: mix($gradient-text-start, $gradient-text-end);
+    background: linear-gradient($gradient-text-angle, $gradient-text-start, $gradient-text-end);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    position: relative;
+    text-shadow: none;
+    color: #FFF;
+}
+
+//* Transparent Text or image behind text
+@mixin text-transparent {
+    color: white;  /* Fallback: assume this color ON TOP of image */
+    background: url('/images/hero.jpg') no-repeat;
+    background-size: cover; // 
+    background-attachment: fixed; // fixed o inherit. Con fixed lo sfondo non si muove insieme alle lettere
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    //opacity: .5; // Variando l'opacità si possono creare interessanti effetti, se il testo è posizionato su un'altro sfondo
+    
+}
+
+.gradient {
+    @include gradient;
+}
+
+.text-gradient {
+    @include text-gradient;
+}
+
+.text-transparent {
+    @include text-transparent;
+}
+
+//* Text size
+@mixin text-xsmall {
+    font-size: $text-xsmall;
+    line-height: $text-xsmall*$ratio;
+}
+.text-xsmall {
+    @include text-xsmall;
+}
+
+@mixin text-small {
+    font-size: $text-small;
+    line-height: $text-small*$ratio;
+    
+    @media only screen and (max-width: $screen-medium) {
+        font-size: $text-xsmall;
+        line-height: $text-xsmall*$ratio;
+    }
+
+    @media only screen and (max-width: $screen-small) {
+        font-size: $text-xxsmall;
+        line-height: $text-xxsmall*$ratio;
+    }
+    
+}
+
+.text-small {
+    @include text-small;
+}
+
+@mixin text-medium {
+    font-size: $text-medium;
+    line-height: $text-medium*$ratio;
+    
+    @media only screen and (max-width: $screen-medium) {
+        font-size: $text-normal;
+        line-height: $text-normal*$ratio;
+    }
+
+    @media only screen and (max-width: $screen-small) {
+        font-size: $text-small;
+        line-height: $text-small*$ratio;
+    }   
+
+}
+
+.text-medium {
+    @include text-medium;
+}
+
+@mixin text-large {
+    font-size: $text-large;
+    
+    @media only screen and (max-width: $screen-medium) {
+        font-size: $text-medium + .2rem;
+    }
+
+    @media only screen and (max-width: $screen-small) {
+        font-size: $text-medium + .1rem;
+    }
+
+}
+
+.text-large {
+    @include text-large;
+}
+
+@mixin text-xlarge {
+    font-size: $text-xlarge;
+    
+    @media only screen and (max-width: $screen-medium) {
+        font-size: $text-large;
+    }
+
+    @media only screen and (max-width: $screen-small) {
+        font-size: $text-large - .6rem;
+    }
+
+}
+
+.text-xlarge {
+    @include text-xlarge;
+}
+
+@mixin text-xxlarge {
+    font-size: $text-xxlarge;
+    
+    @media only screen and (max-width: $screen-medium) {
+        font-size: $text-xlarge;
+        line-height: $text-xlarge*$ratio;
+    }
+
+    @media only screen and (max-width: $screen-small) {
+        font-size: $text-large;
+        line-height: $text-large * 1.4;
+    }
+
+}
+
+.text-xxlarge {
+    @include text-xxlarge;
+}

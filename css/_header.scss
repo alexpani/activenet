@@ -1,0 +1,271 @@
+/* # Site #Header
+---------------------------------------------------------------------------------------------------- */
+
+.site-header {
+	background: $header-background;
+	
+	@media only screen and (min-width: $screen-medium) {		
+	
+		@if $sticky-header == 'yes' {	
+			position: fixed;
+			width: 100%;
+			z-index: 999;
+			//border-bottom: $border;
+		}		
+
+	}
+
+}
+
+@if $sticky-header == 'no' {
+
+	.site-inner {
+	margin-top: $site-inner-margin-top !important;
+	}
+
+	.transparent-header .site-inner,
+	.full-width-page .site-inner {
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+	}
+
+}
+
+@if $sticky-header == 'yes' {
+	.site-inner {
+		padding-top: $site-inner-margin-top; 
+	}
+
+	.home .site-inner {
+		margin-top: $home-site-inner-margin-top; 
+		padding-top: $home-site-inner-margin-top;
+	}
+
+}
+
+.transparent-header .site-inner,
+.full-width-page .site-inner {
+		margin-top: 0;
+		padding-top: 0;
+}
+
+
+@media only screen and (min-width: $screen-medium) {
+
+	@if $sticky-header == 'yes' {
+		.transparent-header .site-header {
+			background: $sticky-header-transparent-background;
+						-webkit-transition: all 0.1s ease-in-out;
+						-moz-transition:    all 0.1s ease-in-out;
+						-ms-transition:     all 0.1s ease-in-out;
+						-o-transition:      all 0.1s ease-in-out;
+						transition:         all 0.1s ease-in-out;
+		}
+	}
+
+	.site-header.white {
+		background: $header-background;
+		//border-bottom: $border;
+		@include box-shadow-1();	
+		-webkit-transition: all 0.2s ease-in-out;
+		-moz-transition:    all 0.2s ease-in-out;
+		-ms-transition:     all 0.2s ease-in-out;
+		-o-transition:      all 0.2s ease-in-out;
+		transition:         all 0.2s ease-in-out;
+		
+		// Riduco l'altezza dell'header quando inizia lo scroll
+		.wrap { 
+			padding: $header-vertical-padding - 20px 0;
+			-webkit-transition: all 0.2s ease-in-out;
+			-moz-transition:    all 0.2s ease-in-out;
+			-ms-transition:     all 0.2s ease-in-out;
+			-o-transition:      all 0.2s ease-in-out;
+			transition:         all 0.2s ease-in-out;
+		}
+
+	}
+
+}
+
+.site-header > .wrap {
+	padding: $header-vertical-padding 0;
+	padding-left: $site-inner-padding-left-right;
+	padding-right: $site-inner-padding-left-right;
+	display: flex;
+	-webkit-align-items: center;
+	        align-items: center;
+	
+	@media only screen and (max-width: $screen-medium) {
+		display: block;
+		}
+}
+
+//* Header Left-Logo-Right & Header Logo-Mid-Right
+
+.header-left-logo-right.site-header,
+.header-logo-mid-right.site-header {
+
+	.title-area,
+	.widget-area {
+	    width: 31.623931623931625%;
+	    float: left;
+	}
+
+@media only screen and (max-width: $screen-medium) {
+	 
+    .title-area,
+    .header-left,
+    .header-middle,
+    .widget-area {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 15px;
+	}
+	
+	.site-inner {
+		margin-top: $site-inner-margin-top !important; // Elimina il margin top imposto dal js dello sticky header
+	}
+
+}
+
+	.header-left .widget:last-child,
+	.header-middle .widget:last-child {
+	    margin-bottom: 0;
+	}
+	 
+	.search-form {
+	    float: none;
+	    width: auto;
+	    max-width: 250px;
+	}	
+
+}
+
+
+/* ## Default for Title Area 
+--------------------------------------------- */
+
+.title-area {
+	float: left;
+	padding: 10px 0;
+	//width: 300px;
+	width: 33%;
+}
+
+.header-image .title-area {
+	//margin: 0 auto;
+	//max-width: 300px;
+	padding: 0;
+}
+
+.header-full-width .title-area {
+	float: none;
+	width: 100%;
+}
+
+.site-title {
+	font-size: 30px;
+	font-size: 3rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.site-title a,
+.site-title a:focus,
+.site-title a:hover {
+	color: $text-color;
+	text-decoration: none;
+}
+
+.header-image .site-title > a {
+	background-position: center !important;
+	background-size: contain !important;
+	float: left;
+	min-height: 80px;
+	width: 100%;
+}
+
+.site-description {
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.site-description,
+.site-title {
+	margin-bottom: 0;
+}
+
+.header-image .site-description,
+.header-image .site-title {
+	display: block;
+	text-indent: -9999px;
+}
+
+/* ## Default for Widget Area
+--------------------------------------------- */
+
+.header-widget-area {
+	float: right;
+	width: 67%;
+	
+	.widget {
+		margin-bottom: 0;
+		float: right;
+		margin-left: 20px;
+	}
+}
+
+@media only screen and (max-width: $screen-medium) {
+
+	.site-header .wrap {
+		//padding-left: 5%;
+		//padding-right: 5%;
+	}
+
+	.header-widget-area .widget {
+		float: none;
+		display: table;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+
+	.site-header .search-form {
+		margin: 16px auto;
+	}
+
+}
+
+
+/* ## New Wordpress Custom #Logo
+--------------------------------------------- */
+
+.wp-custom-logo .title-area {
+	max-width: none;
+	margin-top: 0;
+}
+
+.wp-custom-logo .site-title {
+	text-indent: 0;
+}
+
+.wp-custom-logo .site-title > a {
+	min-height: 0;
+	//text-align: center;
+}
+
+@media only screen and (max-width: $screen-medium) {
+	
+	.wp-custom-logo .site-title > a {
+		text-align: center;	   	 
+	}
+}
+
+.custom-logo-link {
+	display: block;
+}
+
+.custom-logo {
+	vertical-align: top;
+}

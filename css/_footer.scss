@@ -1,0 +1,136 @@
+/*
+ * Footer and Footer Widgets
+*/
+
+
+/* # #Footer Widgets
+---------------------------------------------------------------------------------------------------- */
+
+.footer-widgets {
+
+	.wrap {
+		padding-left: 5%;
+		padding-right: 5%;
+		padding: $footer-widgets-padding;
+	}
+
+	@if $footer-has-border == 'yes' {
+		@include border-top();
+		@include border-bottom();
+	}
+	
+	background: $footer-widgets-background;
+	font-size: $footer-widgets-font-size;
+	line-height: $footer-widgets-font-size*$ratio;
+	clear: both;
+	
+	color: $footer-widgets-text-color;
+
+	b,strong {
+		color: $footer-widgets-bold-color;
+	}
+
+	a {
+		color: $footer-widgets-link;
+	}
+
+	.widget-title {
+		color: $footer-widgets-title-color;
+		font-size: $footer-widgets-title-size;
+
+		@if $footer-menu-title-style == 'underline' {
+			border-bottom: $border;
+		}
+
+		@if $footer-menu-title-style == 'reverse' {
+			background-color: $footer-widgets-title-color;
+			color: #fff;
+			padding: 10px;
+		}
+
+	}
+	.menu-item {
+		text-transform: $footer-menu-transform;	
+
+		@if $footer-menu-style == 1 {
+			border-bottom: 1px dashed $border-color;
+		}
+
+		@if $footer-menu-style == 3 {
+			border-bottom: 1px dashed $border-color;
+		}
+
+	}
+
+	li.menu-item::before {
+
+		@if $footer-menu-style == 2 {
+			content: '▸ ';
+			color: $footer-widgets-text-color;
+		}
+
+		@if $footer-menu-style == 3 {
+			content: '▸ ';
+			color: $footer-widgets-text-color;
+		}
+
+	}
+}
+
+//* Structure
+
+.footer-widgets-1,
+.footer-widgets-2,
+.footer-widgets-3 {
+	width: 33%;
+}
+
+.footer-widgets-1,
+.footer-widgets-2 {
+	float: left;
+}
+
+.footer-widgets-3 {
+	float: right;
+}
+
+@media only screen and (max-width: $screen-small) {
+
+	.footer-widgets-1,
+	.footer-widgets-2,
+	.footer-widgets-3 {
+		width: 100%;
+		//text-align: center;
+		margin-bottom: 40px;
+	}	
+
+}
+
+
+/* # Site Footer
+---------------------------------------------------------------------------------------------------- */
+
+.site-footer {
+	background: $footer-background;
+	@include border-top();
+	color: $footer-text-color;
+
+	b,strong {
+		color: $footer-bold-color;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
+	font-size: $footer-font-size;
+	line-height: 1.5;
+	padding: $footer-padding;
+	text-transform: $footer-text-transform;
+	text-align: center;
+	
+	a {
+		color: $footer-link-color;
+	}
+
+}
