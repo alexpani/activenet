@@ -14,7 +14,7 @@
 		padding: $footer-widgets-padding;
 	}
 
-	@if $footer-has-border == 'yes' {
+	@if $footer-widgets-has-border == 'yes' {
 		@include border-top();
 		@include border-bottom();
 	}
@@ -112,7 +112,11 @@
 
 .site-footer {
 	background: $footer-background;
-	@include border-top();
+
+	@if $footer-has-border == 'yes' {
+		@include border-top();
+	}
+	
 	color: $footer-text-color;
 
 	b,strong {

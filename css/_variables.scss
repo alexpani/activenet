@@ -65,7 +65,7 @@ Rev. 9/01/2018
 	$text-color: #333;
 	$title-line-height: 1.2;
 	$title-color: #555;
-	$title-transform: uppercase;
+	$title-transform: none;
 	$link-decoration: underline;
 	$bold: $bold-weight;
 	$bold-color: $text-color;
@@ -152,7 +152,7 @@ Rev. 9/01/2018
 
 //* Various 
 	$body-background: $white; // Fondamentalmente invisibile
-	$site-container-background: /*url('images/bk.png')*/ $gray-light; // Si vede solo se il content è boxed
+	$site-container-background: /*url('images/bk.png')*/ $white; // Si vede solo se il content è boxed
 	$content-background-color: $white;
 	$border: 1px solid $border-color;
 	$border-radius: 0px;
@@ -201,7 +201,7 @@ Rev. 9/01/2018
 	$sticky-header-transparent-background: rgba(255,255,255,0);  
 
 //* Footer widgets
-	$footer-has-border: 'no';
+	$footer-widgets-has-border: 'no';
 	$footer-widgets-background: $color1;
 	$footer-widgets-padding: 40px 40px;
 	$footer-widgets-title-color: $white;
@@ -215,6 +215,7 @@ Rev. 9/01/2018
 	$footer-menu-style: 2; // 0=flat, 1=voci sottolineate, 2=flat+icona, 3=sottolineate+icona
 
 //* Site footer
+	$footer-has-border: 'no';
 	$footer-background: $white;
 	$footer-font-size: $text-small;
 	$footer-text-color: $text-color;
