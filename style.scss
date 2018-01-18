@@ -11,7 +11,7 @@
 /*
 Import
 ---------------------------------------------------------------------------------------------------- */
-@import "css/vendor/normalize.css"; // normalize stylesheet
+@import "css/vendor/normalize"; // normalize stylesheet
 @import "css/fonts"; // font combinations
 @import "css/variables"; // base variables i.e. theme configurator
 @import "css/mixins"; // theme mixins
@@ -26,7 +26,7 @@ Import
 @import "css/helper"; // helper classes (classes to use in content creation)
 @import "css/components"; // poppy components (icon box...)
 //@import "css/vendor/hue/hue.scss"; // Hues background effects
-@import "css/vendor/font-awesome-4.7.0/css/font-awesome.min.css"; // font awesome icon fonts
+@import "css/vendor/font-awesome-4.7.0/css/font-awesome.min"; // font awesome icon fonts
 
 
 /* ## Box Sizing
@@ -761,8 +761,6 @@ img.alignright,
 	font-size: 20px;
 	font-size: 2rem;
 }
-
-
 /* ## Slider Widget Area
 --------------------------------------------- */
 .slider {
