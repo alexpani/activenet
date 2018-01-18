@@ -191,12 +191,12 @@ Rev. 9/01/2018
 		$two-sidebar-wrap-width: 1280px - $sidebar-secondary-width - $sidebar-spacing;
 
 //* Header
-	$header-background: /*url('images/bk.png')*/ rgba(83, 155, 213, 0.9);
+	$header-background: /*url('images/bk.png')*/ rgba(0, 0, 0, 0.9);
 	$header-vertical-align: center; // center al centro, flex-end in basso
 	$header-vertical-padding: 30px;
 
 	// Header sticky (per ora incompatibile con primary e secondary menu)
-	$sticky-header: 'no'; // Attiva sticky header. Se su no disabilitare l'import del js in function.php per evitare un inutile caricamento
+	$sticky-header: 'yes'; // Attiva sticky header. Se su no disabilitare l'import del js in function.php per evitare un inutile caricamento
 	$home-site-inner-margin-top: 0; // se a 0, la home in presenza di sticky non avrà spazio tra header e content, altrimenti porla uguale a $site-inner-margin-top
 	$sticky-header-transparent-background: rgba(255,255,255,0);  
 

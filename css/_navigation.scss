@@ -135,12 +135,12 @@
 			   color: $header-nav-link;
 		   
 			   &:hover, &:focus {
-				   color: $header-nav-hover;
+				   color: $header-nav-link-hover;
 			   }
 		   }
 
 		   .current-menu-item a {
-			   color: $header-nav-hover;
+			   color: $header-nav-link-hover;
 		   }
 
 	   }
