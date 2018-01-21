@@ -161,16 +161,16 @@
 
 @mixin text-medium {
     font-size: $text-medium;
-    line-height: $text-medium*$ratio;
+    line-height: $text-medium*1.5;
     
     @media only screen and (max-width: $screen-medium) {
-        font-size: $text-normal;
-        line-height: $text-normal*$ratio;
+        //font-size: $text-normal;
+        //line-height: $text-normal*$ratio;
     }
 
     @media only screen and (max-width: $screen-small) {
-        font-size: $text-small;
-        line-height: $text-small*$ratio;
+        //font-size: $text-small;
+        //line-height: $text-medium;
     }   
 
 }
@@ -183,11 +183,11 @@
     font-size: $text-large;
     
     @media only screen and (max-width: $screen-medium) {
-        font-size: $text-medium + .2rem;
+        //font-size: $text-medium + .2rem;
     }
 
     @media only screen and (max-width: $screen-small) {
-        font-size: $text-medium + .1rem;
+        //font-size: $text-medium + .1rem;
     }
 
 }
@@ -200,11 +200,11 @@
     font-size: $text-xlarge;
     
     @media only screen and (max-width: $screen-medium) {
-        font-size: $text-large;
+        //font-size: $text-large;
     }
 
     @media only screen and (max-width: $screen-small) {
-        font-size: $text-large - .6rem;
+        //font-size: $text-large - .6rem;
     }
 
 }
@@ -230,4 +230,23 @@
 
 .text-xxlarge {
     @include text-xxlarge;
+}
+
+@mixin text-xxxlarge {
+    font-size: $text-xxxlarge;
+    
+    @media only screen and (max-width: $screen-medium) {
+        font-size: $text-xxlarge;
+        line-height: $text-xxlarge*$ratio;
+    }
+
+    @media only screen and (max-width: $screen-small) {
+        font-size: $text-xlarge;
+        line-height: $text-xlarge * 1.4;
+    }
+
+}
+
+.text-xxxlarge {
+    @include text-xxxlarge;
 }

@@ -42,7 +42,7 @@ function activenet_enqueue_scripts_styles() {
 
 	//* Carico lo sticky header solo su dispositivi non mobili
 	
-		wp_enqueue_script( 'activenet-sticky-header', get_stylesheet_directory_uri() . '/js/sticky.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+		//wp_enqueue_script( 'activenet-sticky-header', get_stylesheet_directory_uri() . '/js/sticky.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
 		
 
 	//* Non rimuovere se in uso, perchè il Beaver le carica solo nelle pagine dove è attivo
@@ -102,7 +102,7 @@ add_theme_support( 'genesis-responsive-viewport' );
 add_theme_support( 'custom-background' );
 
 //* Add support for column footer widgets
-add_theme_support( 'genesis-footer-widgets', 3 );
+//add_theme_support( 'genesis-footer-widgets', 3 );
 
 //* Remove default image sizes
 add_filter( 'intermediate_image_sizes_advanced', 'prefix_remove_default_images' );
@@ -141,7 +141,7 @@ function activenet_secondary_menu_args( $args ) {
 //* Customize the footer credits
 add_filter( 'genesis_footer_creds_text', 'an_footer_creds_text' );
 function an_footer_creds_text() {
-	echo '<p>©2018 Active Net Theme · P.IVA 0000000 · Web Design by <b>Active Net</b></p>';
+	echo '<p>©2018 Villa Teresa · P.IVA 0000000 · Web Design by <b>Active Net</b></p>';
 }
 
 //* Register sidebars

@@ -17,10 +17,10 @@ Rev. 9/01/2018
 	$black: #000;
 
 	// Theme colors
-	$color1: #3498db;      // link, bottoni, content box primario, tab in woocommerce
-	$color1-alt: #6bbff7;  
-	$color2: #e74c3c;      // bottone secondario
-	$color2-alt: #ff8a7d;
+	$color1: #f7b69a;      // link, bottoni, content box primario, tab in woocommerce
+	$color1-alt: #ee662c;  
+	$color2: #d5f4f6;      // bottone secondario
+	$color2-alt: #8fe2e7;
 	$color3: #f39c12;	   // content box secondario
 	$color3-alt: #f5b856;
 	$color4: $green;
@@ -52,15 +52,15 @@ Rev. 9/01/2018
 			//@include quicksand-cormorantgaramont;
 
 		// Sans serif
-			//@include lato-sourcesanspro;
-			@include raleway-opensans;
+			@include lato-sourcesanspro;
+			//@include raleway-opensans;
 			//@include roboto-opensans;
 			//@include oswald-opensans;
 			//@include opensanscondensed-opensans;
 			//@include robotocondensed-karla;
 
 	$ratio: 1.05/1rem; // Golden è 1.618
-	$font-size: 1.6rem;
+	$font-size: 1.8rem;
 	$text-line-height: $font-size*$ratio;
 	$text-color: #333;
 	$title-line-height: 1.2;
@@ -82,9 +82,11 @@ Rev. 9/01/2018
 	$text-small: $font-size*.9;
 	$text-normal: $font-size; // Per coerenza
 	$text-medium: $font-size*1.2;
-	$text-large: $font-size*2.2;
-	$text-xlarge: $font-size*3;
-	$text-xxlarge: $font-size*4;
+	$text-large: $font-size*1.6;
+	$text-xlarge: $font-size*2.0;
+	$text-xxlarge: $font-size*2.6;
+	$text-xxxlarge: $font-size*4.0;
+
 
 //* Buttons
 	$button-font-family: $title-font-family;
@@ -140,15 +142,15 @@ Rev. 9/01/2018
 	// Navigation side menu
 	$side-menu-font-size: 1.6rem;
 	$side-menu-text-transform: none;
-	$side-menu-bk-start: $color1;
-	$side-menu-bk-end: darken($color1,30);
+	$side-menu-bk-start: $black;
+	$side-menu-bk-end: $gray-dark;
 	$side-menu-bk: mix($side-menu-bk-start,$side-menu-bk-end);
 	$side-menu-color: $white;
 	$side-menu-link: $white;
 	$side-menu-widget-title-color: $white;
 	$side-menu-widget-title-size: 1.8rem;
 	$side-menu-widget-title-weight: $bold;
-	$hamburger-color: $white;
+	$hamburger-color: $black;
 
 //* Various 
 	$body-background: $white; // Fondamentalmente invisibile
@@ -196,7 +198,7 @@ Rev. 9/01/2018
 	$header-vertical-padding: 30px;
 
 	// Header sticky (per ora incompatibile con primary e secondary menu)
-	$sticky-header: 'yes'; // Attiva sticky header. Se su no disabilitare l'import del js in function.php per evitare un inutile caricamento
+	$sticky-header: 'no'; // Attiva sticky header. Se su no disabilitare l'import del js in function.php per evitare un inutile caricamento
 	$home-site-inner-margin-top: 0; // se a 0, la home in presenza di sticky non avrà spazio tra header e content, altrimenti porla uguale a $site-inner-margin-top
 	$sticky-header-transparent-background: rgba(255,255,255,0);  
 

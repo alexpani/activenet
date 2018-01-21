@@ -10,47 +10,30 @@
  * @link    https://www.active-net.it
  */
 
-//* Add Slider widget area
-add_action( 'genesis_before_content_sidebar_wrap', 'slider_widget',20 );
-	function slider_widget() {	
-		genesis_widget_area( 'slider', array(
-			'before' => '<div class="slider widget-area"><div class="wrap">',
-			'after' => '</div></div>',
-	) );
-}
+//* Remove Skip Links
+remove_action ( 'genesis_before_header', 'genesis_skip_links', 5 );
 
-//* Add Home Top Sections widget area
-//add_action( 'genesis_before_content', 'home_top_sections_widget',20 );
-	function home_top_sections_widget() {	
-		genesis_widget_area( 'home-top-sections', array(
-			'before' => '<div class="home-top-sections sections widget-area"><div class="wrap">',
-			'after' => '</div></div>',
-	) );
-}
+//* Dequeue Skip Links Script
+add_action( 'wp_enqueue_scripts', 'activenet_dequeue_skip_links' );
+function activenet_dequeue_skip_links() {
 
-//* Add Home Bottom Sections widget area
-//add_action( 'genesis_before_footer', 'home_bottom_sections_widget', 5 );
-	function home_bottom_sections_widget() {	
-		genesis_widget_area( 'home-bottom-sections', array(
-			'before' => '<div class="home-bottom-sections sections widget-area"><div class="wrap">',
-			'after' => '</div></div>',
-	) );
-}
-
-add_filter( 'genesis_attr_body', 'an_sections_body' );
-
-function an_sections_body( $attributes ) {
-
-	if ( is_active_sidebar( 'home-top-sections' )) {
-		 $attributes['class'] .= ' has-home-top-sections';
-		 return $attributes;
-		}
-
-	else {	
-		 return $attributes;
-		}
+	wp_dequeue_script( 'skip-links' );
 
 }
+
+//* Force full width content layout
+add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
+
+//* Remove site header elements
+remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );
+remove_action( 'genesis_header', 'genesis_do_header' );
+remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
+
+//* Remove navigation
+remove_theme_support( 'genesis-menus' );
+
+//* Remove breadcrumbs
+remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
 
 // Run the Genesis loop.
 genesis();

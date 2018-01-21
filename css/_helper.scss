@@ -74,7 +74,8 @@ $color4: $color1 !default;
 }
 
 
-//* Permettono di spaziare le sezioni e i container (da completare com per i padding)
+//* Margin
+
 .mvs {
 	margin-bottom: 20px;
 	margin-top: 20px;
@@ -92,6 +93,31 @@ $color4: $color1 !default;
 	margin-top: 80px;
 	overflow: auto;
 }
+
+.mts {
+	margin-top: 20px;
+}
+
+.mtm {
+	margin-top: 40px;
+}
+
+.mtl {
+	margin-top: 80px;
+}
+
+.mbs {
+	margin-bottom: 20px;
+}
+
+.mbm {
+	margin-bottom: 40px;
+}
+
+.mbl {
+	margin-bottom: 80px;
+}
+
 
 //* Spacer
 
@@ -313,4 +339,16 @@ $color4: $color1 !default;
 		}		
 
 	}
+}
+
+//* Responsive classes
+
+.hide-medium {
+
+	@media only screen and (max-width: $screen-medium) and (min-width: $screen-small) {
+
+		display: none;
+		
+	}
+	
 }
