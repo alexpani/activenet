@@ -1,5 +1,5 @@
 /*
- * Mixins (Theme+WooCommerce)
+ * Mixins & Helpers (Theme+WooCommerce)
 ---------------------------------------------------------------------------------------------------- */
 
 //* Ombra WooCommerce
@@ -44,6 +44,8 @@
     -webkit-box-shadow: 0 3px 10px rgba($color, .25);
     box-shadow: 0 3px 10px rgba($color, .25);
 }
+
+//* Helper Ombre
 
 .box-shadow-1 {
     @include box-shadow-1;
@@ -249,4 +251,359 @@
 
 .text-xxxlarge {
     @include text-xxxlarge;
+}
+
+/*
+Helper classes. Si utilizzano nell'editor dei post di Wordpress
+---------------------------------------------------------------------------------------------------- */
+
+$color2: $color1 !default; 
+$color3: $color1 !default; 
+$color4: $color1 !default; 
+
+//* Padding
+
+.pvs {
+	padding: $padding-small 0;
+	overflow: auto;
+
+}
+
+.pvm {
+	padding: $padding-medium 0;
+	overflow: auto;
+
+}
+
+.pvl {
+	padding: $padding-large 0;
+	overflow: auto;
+
+}
+
+.pvxl {
+	padding: $padding-xlarge 0;
+	overflow: auto;
+
+}
+
+.phl {
+	padding: 0 $padding-large;
+	overflow: auto;
+
+}
+
+.phm {
+	padding: 0 $padding-medium;
+	overflow: auto;
+}
+
+.phs {
+	padding: 0 $padding-small;
+	overflow: auto;
+}
+
+.pl {
+	padding: $padding-large;
+	overflow: auto;
+}
+
+.pm {
+	padding: $padding-medium;
+	overflow: auto;
+
+}
+
+.ps {
+	padding: $padding-small;
+	overflow: auto;
+}
+
+.ptl {
+	padding-top: $padding-large;
+	overflow: auto;
+}
+
+.nopad {
+	padding: 0;
+}
+
+
+//* Margin
+
+.mvs {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	overflow: auto;
+}
+
+.mvm {
+	margin-bottom: 40px;
+	margin-top: 40px;
+	overflow: auto;
+}
+
+.mvl {
+	margin-bottom: 80px;
+	margin-top: 80px;
+	overflow: auto;
+}
+
+.mts {
+	margin-top: 20px;
+}
+
+.mtm {
+	margin-top: 40px;
+}
+
+.mtl {
+	margin-top: 80px;
+}
+
+.mbs {
+	margin-bottom: 20px;
+}
+
+.mbm {
+	margin-bottom: 40px;
+}
+
+.mbl {
+	margin-bottom: 80px;
+}
+
+
+//* Spacer
+
+.spacer-small {
+    margin: 20px auto;
+}
+
+.spcer-medium, .spacer, .separator {
+    margin: 40px auto;
+}
+
+.spacer-large {
+    margin: 60px auto;
+}
+
+//* Arranger
+
+.center, .align-center {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.right, .align-right {
+	text-align: right !important;
+}
+
+//* Colors
+
+.color1 {
+	color: $color1;
+}
+
+.color2 {
+	color: $color2;
+}
+
+.color3 {
+	color: $color3;
+}
+
+.color4 {
+	color: $color4;
+}
+
+.bk-color1 {
+	background-color: $color1;
+}
+
+.bk-color2 {
+	background-color: $color2;
+}
+
+.bk-color3 {
+	background-color: $color3;
+}
+
+.bk-color4 {
+	background-color: $color4;
+}
+
+.red {
+	color: $red;
+} 
+
+.green {
+	color: $green;
+}
+
+.yellow {
+	color: $yellow;
+}
+
+.orange {
+	color: $orange ;
+}
+
+.blue, .blu {
+	color: $blue;
+}
+
+.black {
+	color: #000;
+}
+
+.white {
+	color: #FFF;
+}
+
+.bk-red {
+	background-color: $red;
+} 
+
+.bk-green {
+	background-color: $green;
+}
+
+.bk-yellow {
+	background-color: $yellow;
+}
+
+.bk-orange {
+	background-color: $orange ;
+}
+
+.bk-blue {
+	background-color: $blue ;
+}
+
+.bk-black {
+	background-color: #000;
+}
+
+.bk-white {
+	background-color: #FFF;
+}
+
+//* Text
+.text-light, .color-light {
+	color: $color-light !important;
+}
+
+.text-dark, .color-dark {
+	color: $color-dark !important;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.text-separator {
+    overflow: hidden;
+    text-align: center;
+    margin: 40px auto !important;
+    
+    &:before,
+	&:after {
+	    background-color: $title-color;
+	    content: "";
+	    display: inline-block;
+	    height: 1px;
+	    position: relative;
+	    vertical-align: middle;
+	    width: 20%;
+	}
+
+	&:before {
+	    right: 0.5rem;
+	    margin-left: -50%;
+	}
+
+	&:after {
+	    left: 0.5rem;
+	    margin-right: -50%;
+	}
+
+}
+
+//* Social icons
+
+.facebook,
+.youtube,
+.twitter,
+.pinterest {
+	float: left;
+	margin-right: 20px;
+	
+}
+
+.social {
+	overflow: auto;	
+	display: inline-flex;
+}
+
+.facebook {
+
+	i {
+		color: #3b5998;
+		
+		&:hover {
+			color: #8b9dc3;
+		}		
+
+	}
+}
+
+.twitter {
+
+	i {
+		color: #0084b4;
+		
+		&:hover {
+			color: #00aced;
+		}		
+
+	}
+}
+
+.pinterest {
+	
+	i {
+		color: #bd081c;
+		
+		&:hover {
+			color: #d50c22;
+		}		
+
+	}
+}
+
+.youtube {
+	
+	i {
+		color: #CD201F;
+		
+		&:hover {
+			color: #000000;
+		}		
+
+	}
+}
+
+//* Responsive classes
+
+.hide-medium {
+
+	@media only screen and (max-width: $screen-medium) and (min-width: $screen-small) {
+
+		display: none;
+		
+	}
+	
 }
