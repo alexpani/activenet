@@ -1,8 +1,8 @@
 <?php
 /**
  * Active Net
- * @version 1.3
- * @date 9/01/2018
+ * @version 1.3.1
+ * @date 27/01/2018
  * Basato sul Genesis Sample Child Theme
  * Compatibile con Beaver Buuilder e relative estensioni
  *
